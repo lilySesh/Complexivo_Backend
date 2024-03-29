@@ -1,5 +1,7 @@
-package com.complexivo.Complexivo_Base.Models;
+package com.complexivo.Complexivo_Base.Models.primary;
 
+import com.complexivo.Complexivo_Base.Models.primary.Persona;
+import com.complexivo.Complexivo_Base.Models.primary.Rol;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,9 +12,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 @Getter
 @Setter
 @AllArgsConstructor

@@ -1,9 +1,9 @@
 package com.complexivo.Complexivo_Base.Controllers;
 
-import com.complexivo.Complexivo_Base.Models.Usuario;
-import com.complexivo.Complexivo_Base.Repository.UsuarioRepository;
-import com.complexivo.Complexivo_Base.Services.RolService;
-import com.complexivo.Complexivo_Base.Services.UsuarioService;
+import com.complexivo.Complexivo_Base.Models.primary.Usuario;
+import com.complexivo.Complexivo_Base.Repository.primary.UsuarioRepository;
+import com.complexivo.Complexivo_Base.Services.primary.RolService;
+import com.complexivo.Complexivo_Base.Services.primary.UsuarioService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

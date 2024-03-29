@@ -1,4 +1,4 @@
-package com.complexivo.Complexivo_Base.Models;
+package com.complexivo.Complexivo_Base.Models.primary;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

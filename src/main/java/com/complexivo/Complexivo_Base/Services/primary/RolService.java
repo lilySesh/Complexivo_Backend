@@ -1,7 +1,7 @@
-package com.complexivo.Complexivo_Base.Services;
+package com.complexivo.Complexivo_Base.Services.primary;
 
-import com.complexivo.Complexivo_Base.Models.Rol;
-import com.complexivo.Complexivo_Base.Repository.RolRepository;
+import com.complexivo.Complexivo_Base.Models.primary.Rol;
+import com.complexivo.Complexivo_Base.Repository.primary.RolRepository;
 import com.complexivo.Complexivo_Base.Services.genericServices.GenericService;
 import com.complexivo.Complexivo_Base.Services.genericServices.GenericServiceImpl;
 import jakarta.transaction.Transactional;

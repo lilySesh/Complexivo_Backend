@@ -1,5 +1,6 @@
-package com.complexivo.Complexivo_Base.Models;
+package com.complexivo.Complexivo_Base.Models.primary;
 
+import com.complexivo.Complexivo_Base.Models.primary.Persona;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,6 +1,6 @@
-package com.complexivo.Complexivo_Base.Repository;
+package com.complexivo.Complexivo_Base.Repository.primary;
 
-import com.complexivo.Complexivo_Base.Models.Persona;
+import com.complexivo.Complexivo_Base.Models.primary.Persona;
 import com.complexivo.Complexivo_Base.Repository.genericRepository.GenericRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.complexivo.Complexivo_Base.Models;
+package com.complexivo.Complexivo_Base.Models.primary;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,17 +11,17 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Areas")
-public class Areas {
+@Table(name = "Materia")
+public class Materia {
     private static final long serialVersionUID = 1L;
     /**
      *
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_Areas;
+    private Long id_malla;
 
-    private String are_nombre;
-    private String are_descripcion;
+    private String mat_nombre;
+    private String mat_descripcion;
 
 }
