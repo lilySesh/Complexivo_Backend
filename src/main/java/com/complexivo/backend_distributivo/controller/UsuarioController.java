@@ -1,4 +1,4 @@
-package com.complexivo.backend_distributivo.controller.primary;
+package com.complexivo.backend_distributivo.controller;
 
 import com.complexivo.backend_distributivo.model.primary.Usuario;
 import com.complexivo.backend_distributivo.services.primary.UsuarioService;
