@@ -44,11 +44,13 @@ public class DistributivoConfig {
                 .build();
     }
 
+    @SuppressWarnings("null")
     @Bean(name = "entityManagerTalento")
     public EntityManager entityManager(EntityManagerFactoryBuilder builder) {
         return entityManagerFactoryPrimary(builder).getObject().createEntityManager();
     }
 
+    @SuppressWarnings("null")
     @Bean(name = "transactionManagerTalento")
     PlatformTransactionManager transactionManagerPrimary(EntityManagerFactoryBuilder builder) {
         return new JpaTransactionManager(entityManagerFactoryPrimary(builder).getObject());

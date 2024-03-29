@@ -41,11 +41,13 @@ public class FenixConfig {
                 .build();
     }
 
+    @SuppressWarnings("null")
     @Bean(name = "entityManagerFenix")
     public EntityManager entityManager(EntityManagerFactoryBuilder builder) {
         return entityManagerFactorySecondary(builder).getObject().createEntityManager();
     }
 
+    @SuppressWarnings("null")
     @Bean(name = "transactionManagerFenix")
     PlatformTransactionManager transactionManagerSecondary(EntityManagerFactoryBuilder builder) {
         return new JpaTransactionManager(entityManagerFactorySecondary(builder).getObject());

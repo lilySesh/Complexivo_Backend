@@ -1,0 +1,47 @@
+{"properties": [
+  {
+    "name": "spring.datasource.talento.jdbc-url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.talento.jdbc-url'"
+  },
+  {
+    "name": "spring.datasource.talento.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.talento.username'"
+  },
+  {
+    "name": "spring.datasource.talento.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.talento.password'"
+  },
+  {
+    "name": "spring.datasource.talento.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.talento.driver-class-name'"
+  },
+  {
+    "name": "media.location",
+    "type": "java.lang.String",
+    "description": "A description for 'media.location'"
+  },
+  {
+    "name": "spring.datasource.fenix.jdbc-url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.fenix.jdbc-url'"
+  },
+  {
+    "name": "spring.datasource.fenix.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.fenix.username'"
+  },
+  {
+    "name": "spring.datasource.fenix.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.fenix.password'"
+  },
+  {
+    "name": "spring.datasource.fenix.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.fenix.driver-class-name'"
+  }
+]}

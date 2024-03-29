@@ -9,11 +9,13 @@ import java.util.Optional;
 
 public  abstract class GenericServiceImpl <T, ID extends Serializable> implements GenericService<T, ID>{
     public abstract CrudRepository<T, ID> getDao();
+    @SuppressWarnings("null")
     @Override
     public T save(T Entity) {
         return getDao().save(Entity);
     }
 
+    @SuppressWarnings("null")
     @Override
     public T findById(ID id) {
         Optional<T> obj = getDao().findById(id);
@@ -30,6 +32,7 @@ public  abstract class GenericServiceImpl <T, ID extends Serializable> implement
         return list;
     }
 
+    @SuppressWarnings("null")
     @Override
     public void delete(ID id) {
         getDao().deleteById(id);

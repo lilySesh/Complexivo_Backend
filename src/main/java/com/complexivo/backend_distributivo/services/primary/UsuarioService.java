@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+@SuppressWarnings("unused")
 @Service
 @Transactional
 public class UsuarioService extends GenericServiceImpl<Usuario, Long> implements GenericService<Usuario, Long> {
