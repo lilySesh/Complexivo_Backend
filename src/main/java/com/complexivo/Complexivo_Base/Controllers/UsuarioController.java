@@ -36,6 +36,26 @@ public class UsuarioController {
     public ResponseEntity<Usuario> create(@RequestBody Usuario u) {
         return new ResponseEntity<>(usuarioService.save(u), HttpStatus.CREATED);
     }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Usuario> update(@PathVariable Long id, @RequestBody Usuario p) {
+        Usuario Periodo = usuarioService.findById(id);
+        if (Periodo != null) {
+            try {
+
+                Periodo.setId_usuario(p.getId_usuario());
+                Periodo.setUsu_clave(p.getUsu_clave());
+                Periodo.setRol(p.getRol());
+
+                return new ResponseEntity<>(usuarioService.save(Periodo), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 
     @DeleteMapping("/delete")
     public ResponseEntity<Usuario> delete(@RequestParam Long id) {

@@ -14,16 +14,20 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Distributivo")
-public class Distributivo {
+@Table(name = "Periodo_Academico")
+public class Periodo_Academico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_distributivo;
+    private Long id_periodo;
+    private String peri_nombre;
+    private String peri_inicio;
+    private String peri_fin;
+    private boolean peri_estado;
 
-    private int doc_horas_doc;
-    private int doc_horas_admin;
-
-    @ManyToMany(mappedBy = "distributivos")
+    @ManyToMany(mappedBy = "periodosAcademicos")
     private Set<Distributivo_Periodo> distributivoPeriodos = new HashSet<>();
+
+
+
 }

@@ -11,17 +11,21 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Malla")
-public class Malla {
+@Table(name = "Distributivo_Periodo")
+public class Distributivo_Periodo {
     private static final long serialVersionUID = 1L;
     /**
      *
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_malla;
+    private Long id_dis_periodo;
 
-    private String id_carrera;
-    private String mal_nombre;
-    private String maldescripcion;
+    @ManyToOne
+    @JoinColumn(name = "id_distributivo")
+    private Distributivo distributivos;
+
+    @ManyToOne
+    @JoinColumn(name = "id_periodo")
+    private Periodo_Academico periodosAcademicos;
 }

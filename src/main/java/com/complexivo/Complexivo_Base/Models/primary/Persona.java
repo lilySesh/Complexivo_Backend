@@ -42,60 +42,8 @@ public class Persona {
     @Column(name = "fecha_nacimiento")
     private String fecha_nacimiento;
 
-    @Column(name = "pais_natal")
-    private String pais_natal;
-
     @Column(name = "edad")
     private Integer edad;
-
-    @Column(name = "genero")
-    private String genero;
-
-    @Column(name = "sexo")
-    private String sexo;
-
-    @Column(name = "tipo_sangre")
-    private String tipo_sangre;
-
-    @Column(name = "estado_civil")
-    private String estado_civil;
-
-    @Column(name = "etnia")
-    private String etnia;
-
-    @Column(name = "idioma_raiz")
-    private String idioma_raiz;
-
-    @Column(name = "idioma_secundario")
-    private String idioma_secundario;
-
-    ////////////////////////////////////////////
-
-    @Column(name = "pais_residencia")
-    private String pais_residencia;
-
-    @Column(name = "provincia_residencia")
-    private String provincia_residencia;
-
-    @Column(name = "canton_residencia")
-    private String canton_residencia;
-
-    @Column(name = "parroquia_residencia")
-    private String parroquia_residencia;
-
-    @Column(name = "calles")
-    private String calles;
-
-    @Column(name = "numero_casa")
-    private String numero_casa;
-
-    @Column(name = "sector")
-    private String sector;
-
-    @Column(name = "referencia")
-    private String referencia;
-
-    //////////////////////////////////////////////////
 
     @Column(name = "celular")
     private String celular;
@@ -109,33 +57,7 @@ public class Persona {
     @Column(name = "correo_institucional")
     private String correo_institucional;
 
-    ///////////////////////////////////////////////
 
-    @Column(name = "discapacidad")
-    private String discapacidad;
-
-    @Column(name = "tipo_discapacidad")
-    private String tipo_discapacidad;
-
-    @Column(name = "porcentaje_discapacidad")
-    private String porcentaje_discapacidad;
-
-    @Column(name = "carnet_conadis")
-    private String carnet_conadis;
-
-    ////////////////////////////////////////////////
-
-    @Column(name = "foto_carnet", columnDefinition = "TEXT")
-    private String foto_carnet;
-
-    @Column(name = "foto", columnDefinition = "TEXT")
-    private String foto;
-
-    @Column(name = "cv_socioempleo", columnDefinition = "TEXT")
-    private String cv_socioempleo;
-
-    @Column(name = "descripcion_perfil")
-    private String descripcion_perfil;
 
 
     //relacion
@@ -145,7 +67,7 @@ public class Persona {
 
     //relacion
     @OneToOne(mappedBy = "persona_id")
-    @JsonIgnore // Esta anotación evita que se serialice el campo usuario
+    @JsonIgnore // Esta anotación evita que se serialice el campo docente
     private Docente docente;
 
 }

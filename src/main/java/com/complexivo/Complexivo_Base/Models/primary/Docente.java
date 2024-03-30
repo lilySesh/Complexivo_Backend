@@ -22,9 +22,9 @@ public class Docente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_docente;
 
-    private int doc_horas_doc;
-    private int doc_horas_admin;
-    private int doc_total_horas;
+    private int doc_titulo;
+    private int doc_tipo;
+    private int doc_horas;
 
     //Relacion uno a uno
     @OneToOne(cascade = CascadeType.ALL)

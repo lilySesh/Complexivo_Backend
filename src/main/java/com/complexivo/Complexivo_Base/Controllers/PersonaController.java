@@ -21,8 +21,7 @@ public class PersonaController {
 
     @Autowired
     private PersonaService usuarioService;
-    @Autowired
-    private HttpServletRequest request;
+
 
 
     @GetMapping("/read")
@@ -32,6 +31,33 @@ public class PersonaController {
     @PostMapping("/create")
     public ResponseEntity<Persona> create(@RequestBody Persona u) {
         return new ResponseEntity<>(usuarioService.save(u), HttpStatus.CREATED);
+    }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Persona> update(@PathVariable Long id, @RequestBody Persona p) {
+        Persona personas = usuarioService.findById(id);
+        if (personas != null) {
+            try {
+
+                personas.setId_persona(p.getId_persona());
+                personas.setCedula(p.getCedula());
+                personas.setPrimer_nombre(p.getPrimer_nombre());
+                personas.setSegundo_nombre(p.getSegundo_nombre());
+                personas.setApellido_materno(p.getApellido_materno());
+                personas.setApellido_paterno(p.getApellido_paterno());
+                personas.setTelefono(p.getTelefono());
+                personas.setCorreo(p.getCorreo());
+                personas.setCorreo_institucional(p.getCorreo_institucional());
+                personas.setCelular(p.getCelular());
+
+
+                return new ResponseEntity<>(usuarioService.save(personas), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @DeleteMapping("/delete")
