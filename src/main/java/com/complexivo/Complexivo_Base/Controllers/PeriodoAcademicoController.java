@@ -50,8 +50,8 @@ public class PeriodoAcademicoController {
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<Docente> delete(@RequestParam Long id) {
-        docenteService.delete(id);
+    public ResponseEntity<Periodo_Academico> delete(@RequestParam Long id) {
+        periodoAcademicoService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
