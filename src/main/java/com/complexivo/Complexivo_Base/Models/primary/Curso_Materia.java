@@ -11,25 +11,19 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Curso_Materia")
+@Table(name = "curso_materia")
 public class Curso_Materia {
 
     private static final long serialVersionUID = 1L;
-    /**
-     *
-     */
+    
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_curso_materia")
-    @Id
     private Long id_curso_materia;
 
-    @Column(name = "horarios")
-    private String horarios;
 
-    ///////////////////////////////////////////////////////////////////
-
+    //Relaciones
     //Relacion muchos a uno
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cmMatId", referencedColumnName = "id_materia")
 //    @JsonIgnore // Esta anotación evita que se serialice el campo matCarId

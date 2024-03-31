@@ -11,16 +11,15 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Distributivo_Periodo")
+@Table(name = "distributivo_periodo")
 public class Distributivo_Periodo {
     private static final long serialVersionUID = 1L;
-    /**
-     *
-     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_dis_periodo")
     private Long id_dis_periodo;
 
+    //Relaciones
     @ManyToOne
     @JoinColumn(name = "id_distributivo")
     private Distributivo distributivos;

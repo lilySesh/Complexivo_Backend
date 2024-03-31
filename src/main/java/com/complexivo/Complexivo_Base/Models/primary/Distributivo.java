@@ -14,16 +14,23 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Distributivo")
+@Table(name = "distributivo")
 public class Distributivo {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_distributivo")
     private Long id_distributivo;
 
+    @Column(name = "doc_horas_doc")
     private int doc_horas_doc;
+
+    @Column(name = "doc_horas_admin")
     private int doc_horas_admin;
 
+    //Relaciones
     @ManyToMany(mappedBy = "distributivos")
     private Set<Distributivo_Periodo> distributivoPeriodos = new HashSet<>();
 }

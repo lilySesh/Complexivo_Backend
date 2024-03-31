@@ -14,16 +14,14 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Curso")
+@Table(name = "curso")
 public class Curso {
 
     private static final long serialVersionUID = 1L;
-    /**
-     *
-     */
+    
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_curso")
-    @Id
     private Long id_curso;
 
     @Column(name = "cur_nombre")
@@ -39,10 +37,8 @@ public class Curso {
     private String cur_paralelo;
 
 
-    ////////////////////////////////////////////////////////
-
+    //Relaciones
     //relacion uno a muchos
-
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "cmCurId", cascade = CascadeType.ALL)
     @JsonIgnore // Esta anotación evita que se serialice el campo carrera
     List<Curso_Materia> cursomateria;

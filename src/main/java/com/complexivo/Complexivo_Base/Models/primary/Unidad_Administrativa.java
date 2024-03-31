@@ -11,12 +11,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Unidad_Administrativa")
+@Table(name = "unidad_administrativa")
 public class Unidad_Administrativa {
     
+    private static final long serialVersionUID = 1L;
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_uni_adm")
-    @Id
     private Long id_uni_adm;
 
     @Column(name = "peri_nombre")
@@ -30,5 +32,7 @@ public class Unidad_Administrativa {
 
     @Column(name = "peri_estado")
     private boolean peri_estado;
+
+    //Relaciones
 
 }
