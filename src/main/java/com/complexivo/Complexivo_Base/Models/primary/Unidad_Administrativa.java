@@ -13,11 +13,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "Unidad_Administrativa")
 public class Unidad_Administrativa {
-
-    private static final long serialVersionUID = 1L;
-    /**
-     *
-     */
+    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_uni_adm")
     @Id

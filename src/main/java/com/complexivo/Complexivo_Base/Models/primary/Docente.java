@@ -1,6 +1,5 @@
 package com.complexivo.Complexivo_Base.Models.primary;
 
-import com.complexivo.Complexivo_Base.Models.primary.Persona;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,23 +11,27 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Docente")
+@Table(name = "docente")
 public class Docente {
-    private static final long serialVersionUID = 1L;
-    /**
-     *
-     */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_docente;
 
+    private static final long serialVersionUID = 1L;
+    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "id_docente")
+    private Long id_docente;
+    
+    @Column(name = "doc_titulo")
     private int doc_titulo;
+
+    @Column(name = "doc_tipo")
     private int doc_tipo;
+
+    @Column(name = "doc_horas")
     private int doc_horas;
 
-    //Relacion uno a uno
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "persona_id", referencedColumnName = "id_persona")
-//    @JsonIgnore // Esta anotación evita que se serialice el campo usuPerId
-    private Persona persona_id;
+    //Relaciones
+    @OneToOne()
+    @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
+    private Persona persona;
 }

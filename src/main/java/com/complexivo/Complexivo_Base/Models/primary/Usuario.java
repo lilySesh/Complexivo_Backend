@@ -1,51 +1,41 @@
 package com.complexivo.Complexivo_Base.Models.primary;
 
-import com.complexivo.Complexivo_Base.Models.primary.Persona;
-import com.complexivo.Complexivo_Base.Models.primary.Rol;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-
-import java.util.Collection;
-import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Usuarios")
+@Table(name = "usuario")
 public class Usuario {
+
     private static final long serialVersionUID = 1L;
-    /**
-     *
-     */
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
     private Long id_usuario;
 
+    @Column(name = "usu_usuario")
     private String usu_usuario;
 
+    @Column(name = "usu_clave")
     private String usu_clave;
-    //Relacion uno a uno
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuPerId", referencedColumnName = "id_persona")
-//    @JsonIgnore // Esta anotación evita que se serialice el campo usuPerId
-    private Persona usuPerId;
 
-    @ManyToOne
-    @JoinColumn(name = "rolId", referencedColumnName = "id_rol")
+
+    //Relaciones
+    @OneToOne()
+    @JoinColumn(name = "persona", referencedColumnName = "id_persona")
+    private Persona persona;
+
+    @OneToOne()
+    @JoinColumn(name = "rol", referencedColumnName = "id_rol")
     private Rol rol;
-
-
-    @JsonIgnore
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority((rol.getRol_nombre())));
-    }
-
 }
