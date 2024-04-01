@@ -14,6 +14,8 @@ import lombok.Setter;
 @Entity
 @Table(name = "rol")
 public class Rol  {
+
+    private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

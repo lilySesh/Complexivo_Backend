@@ -1,5 +1,9 @@
 package com.complexivo.Complexivo_Base.Models.primary;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,9 +33,16 @@ public class Docente {
 
     @Column(name = "doc_horas")
     private int doc_horas;
+    
+    @Column(name = "doc_estado")
+    private String doc_estado;
 
     //Relaciones
     @OneToOne()
     @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
     private Persona persona;
+
+    @OneToMany(mappedBy = "docentes")
+    @JsonIgnore
+    private List<Distributivo> distributivos;
 }

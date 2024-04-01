@@ -1,45 +1,42 @@
 package com.complexivo.Complexivo_Base.Models.primary;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Curso_Materia")
+@Table(name = "curso_materia")
 public class Curso_Materia {
 
     private static final long serialVersionUID = 1L;
-    /**
-     *
-     */
+    
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_curso_materia")
-    @Id
     private Long id_curso_materia;
 
-    @Column(name = "horarios")
-    private String horarios;
 
-    ///////////////////////////////////////////////////////////////////
+    //Relaciones
+    @ManyToOne()
+    @JoinColumn(name = "materia", referencedColumnName = "id_materia")
+    private Materia materia;
 
-    //Relacion muchos a uno
+    @ManyToOne()
+    @JoinColumn(name = "curso", referencedColumnName = "id_curso")
+    private Curso curso;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cmMatId", referencedColumnName = "id_materia")
-//    @JsonIgnore // Esta anotación evita que se serialice el campo matCarId
-    private Materia cmMatId;
+    @OneToMany(mappedBy = "curso_materia")
+    @JsonIgnore
+    private List<Distributivo> distributivo;
 
-    //Relacion muchos a uno
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cmCurId", referencedColumnName = "id_curso")
-//    @JsonIgnore // Esta anotación evita que se serialice el campo matCarId
-    private Curso cmCurId;
 
 }
