@@ -1,6 +1,5 @@
 package com.complexivo.Complexivo_Base.Controllers;
 
-
 import com.complexivo.Complexivo_Base.Models.primary.Distributivo;
 import com.complexivo.Complexivo_Base.Services.primary.DistributivoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/distributivo")
@@ -16,8 +16,6 @@ public class DistributivoController {
 
     @Autowired
     private DistributivoService distributivoService;
-
-
 
     @GetMapping("/read")
     public ResponseEntity<List<Distributivo>> read() {
@@ -36,7 +34,6 @@ public class DistributivoController {
                      distributivos.setId_distributivo(p.getId_distributivo());
                      distributivos.setDoc_horas_admin(p.getDoc_horas_admin());
                      distributivos.setDoc_horas_doc(p.getDoc_horas_doc());
-                     distributivos.setDistributivoPeriodos(p.getDistributivoPeriodos());
 
 
                 return new ResponseEntity<>(distributivoService.save(distributivos), HttpStatus.CREATED);

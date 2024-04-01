@@ -12,62 +12,39 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Persona")
+@Table(name = "persona")
 public class Persona {
 
     private static final long serialVersionUID = 1L;
-    /**
-     *
-     */
+    
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_persona")
-    @Id
     private Long id_persona;
 
-    @Column(name = "cedula")
-    private String cedula;
+    @Column(name = "per_cedula")
+    private String per_cedula;
+    @Column(name = "per_primer_nombre")
+    private String per_primer_nombre;
 
-    @Column(name = "apellido_paterno")
-    private String apellido_paterno;
+    @Column(name = "per_segundo_nombre")
+    private String per_segundo_nombre;
 
-    @Column(name = "apellido_materno")
-    private String apellido_materno;
+    @Column(name = "per_prim_apellido")
+    private String per_prim_apellido;
 
-    @Column(name = "primer_nombre")
-    private String primer_nombre;
+    @Column(name = "per_seg_apellido")
+    private String per_seg_apellido;
 
-    @Column(name = "segundo_nombre")
-    private String segundo_nombre;
+    @Column(name = "per_correo_institucional")
+    private String per_correo_institucional;
 
-    @Column(name = "fecha_nacimiento")
-    private String fecha_nacimiento;
-
-    @Column(name = "edad")
-    private Integer edad;
-
-    @Column(name = "celular")
-    private String celular;
-
-    @Column(name = "telefono")
-    private String telefono;
-
-    @Column(name = "correo")
-    private String correo;
-
-    @Column(name = "correo_institucional")
-    private String correo_institucional;
-
-
-
-
-    //relacion
-    @OneToOne(mappedBy = "usuPerId")
-    @JsonIgnore // Esta anotación evita que se serialice el campo usuario
+    //Relaciones
+    @JsonIgnore
+    @OneToOne(mappedBy = "persona")
     private Usuario usuario;
 
-    //relacion
-    @OneToOne(mappedBy = "persona_id")
-    @JsonIgnore // Esta anotación evita que se serialice el campo docente
+    @JsonIgnore
+    @OneToOne(mappedBy = "persona")
     private Docente docente;
-
 }

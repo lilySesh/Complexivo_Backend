@@ -1,6 +1,5 @@
 package com.complexivo.Complexivo_Base.Controllers;
 
-
 import com.complexivo.Complexivo_Base.Models.primary.Periodo_Academico;
 import com.complexivo.Complexivo_Base.Services.primary.PeriodoAcademicoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +13,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/periodoAcademico")
 public class PeriodoAcademicoController {
+
     @Autowired
     private PeriodoAcademicoService periodoAcademicoService;
-
-
 
     @GetMapping("/read")
     public ResponseEntity<List<Periodo_Academico>> read() {
@@ -38,7 +36,6 @@ public class PeriodoAcademicoController {
                 periodos.setPeri_nombre(p.getPeri_nombre());
                 periodos.setPeri_inicio(p.getPeri_inicio());
                 periodos.setPeri_estado(p.isPeri_estado());
-                periodos.setDistributivoPeriodos(p.getDistributivoPeriodos());
                 return new ResponseEntity<>(periodoAcademicoService.save(periodos), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
