@@ -1,13 +1,13 @@
 package com.complexivo.Complexivo_Base.Models.primary;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
@@ -31,6 +31,15 @@ public class Distributivo {
     private int doc_horas_admin;
 
     //Relaciones
-    @ManyToMany(mappedBy = "distributivos")
-    private Set<Distributivo_Periodo> distributivoPeriodos = new HashSet<>();
+    @ManyToOne()
+    @JoinColumn(name = "curso_materia", referencedColumnName = "id_curso_materia")
+    private Curso_Materia curso_materia;
+
+    @ManyToOne()
+    @JoinColumn(name = "uni_adm", referencedColumnName = "id_uni_adm")
+    private Unidad_Administrativa uni_adm;
+
+    @OneToMany(mappedBy = "distributivo")
+    @JsonIgnore
+    private List<Distributivo_Periodo> distributivo_periodo;
 }

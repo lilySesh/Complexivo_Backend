@@ -1,10 +1,13 @@
 package com.complexivo.Complexivo_Base.Models.primary;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -34,5 +37,7 @@ public class Unidad_Administrativa {
     private boolean peri_estado;
 
     //Relaciones
-
+    @OneToMany(mappedBy = "uni_adm")
+    @JsonIgnore
+    private List<Distributivo> distributivo;
 }

@@ -34,15 +34,11 @@ public class Materia {
     private String mat_descripcion;
 
     //relaciones
-    //Relacion muchos a uno
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "matCarId", referencedColumnName = "id_carrera")
-//    @JsonIgnore // Esta anotación evita que se serialice el campo matCarId
-    private Carrera matCarId;
+    @ManyToOne()
+    @JoinColumn(name = "carrera", referencedColumnName = "id_carrera")
+    private Carrera carrera;
    
-    //relacion uno a muchos
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cmMatId", cascade = CascadeType.ALL)
-    @JsonIgnore // Esta anotación evita que se serialice el campo carrera
-    List<Curso_Materia> curso_Materias;
-
+    @OneToMany(mappedBy = "materia")
+    @JsonIgnore
+    List<Curso_Materia> curso_materias;
 }

@@ -1,10 +1,13 @@
 package com.complexivo.Complexivo_Base.Models.primary;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,17 +26,17 @@ public class Curso_Materia {
 
 
     //Relaciones
-    //Relacion muchos a uno
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cmMatId", referencedColumnName = "id_materia")
-//    @JsonIgnore // Esta anotación evita que se serialice el campo matCarId
-    private Materia cmMatId;
+    @ManyToOne()
+    @JoinColumn(name = "materia", referencedColumnName = "id_materia")
+    private Materia materia;
 
-    //Relacion muchos a uno
+    @ManyToOne()
+    @JoinColumn(name = "curso", referencedColumnName = "id_curso")
+    private Curso curso;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cmCurId", referencedColumnName = "id_curso")
-//    @JsonIgnore // Esta anotación evita que se serialice el campo matCarId
-    private Curso cmCurId;
+    @OneToMany(mappedBy = "curso_materia")
+    @JsonIgnore
+    private List<Distributivo> distributivo;
+
 
 }

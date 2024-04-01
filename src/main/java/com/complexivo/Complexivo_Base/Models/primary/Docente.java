@@ -34,4 +34,8 @@ public class Docente {
     @OneToOne()
     @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
     private Persona persona;
+
+    @ManyToOne()
+    @JoinColumn(name = "distributivo", referencedColumnName = "id_dis_peri")
+    private Distributivo_Periodo distributivo_periodo;
 }

@@ -1,13 +1,13 @@
 package com.complexivo.Complexivo_Base.Models.primary;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
@@ -37,7 +37,7 @@ public class Periodo_Academico {
     private boolean peri_estado;
 
     //Relaciones
-    @ManyToMany(mappedBy = "periodosAcademicos")
-    private Set<Distributivo_Periodo> distributivoPeriodos = new HashSet<>();
-
+    @OneToMany(mappedBy = "periodo")
+    @JsonIgnore
+    List<Distributivo_Periodo> distributivo_periodo;
 }

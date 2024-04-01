@@ -38,9 +38,7 @@ public class Curso {
 
 
     //Relaciones
-    //relacion uno a muchos
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cmCurId", cascade = CascadeType.ALL)
-    @JsonIgnore // Esta anotación evita que se serialice el campo carrera
-    List<Curso_Materia> cursomateria;
-
+    @OneToMany(mappedBy = "curso")
+    @JsonIgnore
+    List<Curso_Materia> curso_materias;
 }
