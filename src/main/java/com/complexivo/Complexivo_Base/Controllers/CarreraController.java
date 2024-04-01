@@ -2,7 +2,6 @@ package com.complexivo.Complexivo_Base.Controllers;
 
 import com.complexivo.Complexivo_Base.Models.primary.Carrera;
 import com.complexivo.Complexivo_Base.Services.primary.CarreraService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +16,6 @@ public class CarreraController {
 
     @Autowired
     private CarreraService carreraService;
-    @Autowired
-    private HttpServletRequest request;
 
     @GetMapping("/read")
     public ResponseEntity<List<Carrera>> read() {

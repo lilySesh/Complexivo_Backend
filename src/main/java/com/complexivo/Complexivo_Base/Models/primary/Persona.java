@@ -39,7 +39,6 @@ public class Persona {
     @Column(name = "per_correo_institucional")
     private String per_correo_institucional;
 
-
     //Relaciones
     @JsonIgnore
     @OneToOne(mappedBy = "persona")

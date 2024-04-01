@@ -1,6 +1,5 @@
 package com.complexivo.Complexivo_Base.Controllers;
 
-
 import com.complexivo.Complexivo_Base.Models.primary.Docente;
 import com.complexivo.Complexivo_Base.Services.primary.DocenteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,14 +8,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/docente")
 public class DocenteController {
+
     @Autowired
     private DocenteService docenteService;
-
-
 
     @GetMapping("/read")
     public ResponseEntity<List<Docente>> read() {
@@ -36,7 +35,7 @@ public class DocenteController {
                 docentes.setDoc_tipo(p.getDoc_tipo());
                 docentes.setDoc_horas(p.getDoc_horas());
                 docentes.setDoc_titulo(p.getDoc_titulo());
-                docentes.setPersona_id(p.getPersona_id());
+                docentes.setPersona(p.getPersona());
 
                 return new ResponseEntity<>(docenteService.save(docentes), HttpStatus.CREATED);
             } catch (Exception e) {

@@ -1,12 +1,7 @@
 package com.complexivo.Complexivo_Base.Controllers;
 
 import com.complexivo.Complexivo_Base.Models.primary.Persona;
-import com.complexivo.Complexivo_Base.Models.primary.Usuario;
-import com.complexivo.Complexivo_Base.Repository.primary.UsuarioRepository;
 import com.complexivo.Complexivo_Base.Services.primary.PersonaService;
-import com.complexivo.Complexivo_Base.Services.primary.RolService;
-import com.complexivo.Complexivo_Base.Services.primary.UsuarioService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +17,6 @@ public class PersonaController {
     @Autowired
     private PersonaService usuarioService;
 
-
-
     @GetMapping("/read")
     public ResponseEntity<List<Persona>> read() {
         return new ResponseEntity<>(usuarioService.findByAll(), HttpStatus.OK);
@@ -37,19 +30,14 @@ public class PersonaController {
         Persona personas = usuarioService.findById(id);
         if (personas != null) {
             try {
-
-                personas.setId_persona(p.getId_persona());
-                personas.setCedula(p.getCedula());
-                personas.setPrimer_nombre(p.getPrimer_nombre());
-                personas.setSegundo_nombre(p.getSegundo_nombre());
-                personas.setApellido_materno(p.getApellido_materno());
-                personas.setApellido_paterno(p.getApellido_paterno());
-                personas.setTelefono(p.getTelefono());
-                personas.setCorreo(p.getCorreo());
-                personas.setCorreo_institucional(p.getCorreo_institucional());
-                personas.setCelular(p.getCelular());
-
-
+                personas.setPer_cedula(p.getPer_cedula());
+                personas.setPer_primer_nombre(p.getPer_primer_nombre());
+                personas.setPer_prim_apellido(p.getPer_prim_apellido());
+                personas.setPer_segundo_nombre(p.getPer_segundo_nombre());
+                personas.setPer_seg_apellido(p.getPer_seg_apellido());
+                personas.setPer_correo_institucional(p.getPer_correo_institucional());
+                personas.setUsuario(p.getUsuario());
+                personas.setDocente(p.getDocente());
                 return new ResponseEntity<>(usuarioService.save(personas), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

@@ -33,6 +33,9 @@ public class Docente {
 
     @Column(name = "doc_horas")
     private int doc_horas;
+    
+    @Column(name = "doc_estado")
+    private String doc_estado;
 
     //Relaciones
     @OneToOne()
