@@ -39,7 +39,12 @@ public class Distributivo {
     @JoinColumn(name = "uni_adm", referencedColumnName = "id_uni_adm")
     private Unidad_Administrativa uni_adm;
 
-    @OneToMany(mappedBy = "distributivo")
-    @JsonIgnore
-    private List<Distributivo_Periodo> distributivo_periodo;
+    @ManyToOne()
+    @JoinColumn(name = "periodo", referencedColumnName = "id_periodo")
+    private Periodo_Academico periodos;
+
+    @ManyToOne()
+    @JoinColumn(name = "docente", referencedColumnName = "id_docente")
+    private Docente docentes;
+
 }

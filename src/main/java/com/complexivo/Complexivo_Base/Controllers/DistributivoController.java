@@ -36,7 +36,6 @@ public class DistributivoController {
                      distributivos.setId_distributivo(p.getId_distributivo());
                      distributivos.setDoc_horas_admin(p.getDoc_horas_admin());
                      distributivos.setDoc_horas_doc(p.getDoc_horas_doc());
-                     distributivos.setDistributivoPeriodos(p.getDistributivoPeriodos());
 
 
                 return new ResponseEntity<>(distributivoService.save(distributivos), HttpStatus.CREATED);

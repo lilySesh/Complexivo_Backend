@@ -38,7 +38,6 @@ public class PeriodoAcademicoController {
                 periodos.setPeri_nombre(p.getPeri_nombre());
                 periodos.setPeri_inicio(p.getPeri_inicio());
                 periodos.setPeri_estado(p.isPeri_estado());
-                periodos.setDistributivoPeriodos(p.getDistributivoPeriodos());
                 return new ResponseEntity<>(periodoAcademicoService.save(periodos), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

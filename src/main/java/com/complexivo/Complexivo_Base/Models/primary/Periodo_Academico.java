@@ -37,7 +37,7 @@ public class Periodo_Academico {
     private boolean peri_estado;
 
     //Relaciones
-    @OneToMany(mappedBy = "periodo")
+    @OneToMany(mappedBy = "periodos")
     @JsonIgnore
-    List<Distributivo_Periodo> distributivo_periodo;
+    private List<Distributivo> distributivos;
 }
