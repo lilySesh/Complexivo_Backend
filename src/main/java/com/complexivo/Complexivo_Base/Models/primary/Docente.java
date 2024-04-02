@@ -39,7 +39,7 @@ public class Docente {
 
     //Relaciones
     @OneToOne()
-    @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
+    @JoinColumn(name = "id_persona", referencedColumnName = "id_persona", unique = true)
     private Persona persona;
 
     @OneToMany(mappedBy = "docentes")

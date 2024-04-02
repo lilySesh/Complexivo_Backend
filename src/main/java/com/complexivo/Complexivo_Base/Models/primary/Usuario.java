@@ -30,7 +30,7 @@ public class Usuario {
 
     //Relaciones
     @OneToOne()
-    @JoinColumn(name = "persona", referencedColumnName = "id_persona")
+    @JoinColumn(nullable = false ,name = "persona", referencedColumnName = "id_persona", unique = true)
     private Persona persona;
 
     @ManyToOne()

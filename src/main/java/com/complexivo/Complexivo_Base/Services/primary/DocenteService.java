@@ -1,7 +1,6 @@
 package com.complexivo.Complexivo_Base.Services.primary;
 
 import com.complexivo.Complexivo_Base.Models.primary.Docente;
-import com.complexivo.Complexivo_Base.Models.primary.Periodo_Academico;
 import com.complexivo.Complexivo_Base.Repository.primary.DocenteRepository;
 import com.complexivo.Complexivo_Base.Services.genericServices.GenericService;
 import com.complexivo.Complexivo_Base.Services.genericServices.GenericServiceImpl;
