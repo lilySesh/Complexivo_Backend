@@ -1,21 +1,54 @@
 package com.complexivo.Complexivo_Base.Services.primary;
 
+import com.complexivo.Complexivo_Base.Models.primary.Carrera;
 import com.complexivo.Complexivo_Base.Models.primary.Curso;
+import com.complexivo.Complexivo_Base.Repository.primary.CarreraRepository;
 import com.complexivo.Complexivo_Base.Repository.primary.CursoRepository;
-import com.complexivo.Complexivo_Base.Services.genericServices.GenericService;
-import com.complexivo.Complexivo_Base.Services.genericServices.GenericServiceImpl;
-import jakarta.transaction.Transactional;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-@Transactional
-public class CursoService extends GenericServiceImpl<Curso, Long> implements GenericService<Curso, Long> {
+public class CursoService implements ICursoService{
 
-    private CursoRepository cursoRepository;
-    @Override
-    public CrudRepository<Curso, Long> getDao() {
+	
+	
+	@Autowired
+	private CursoRepository cursorepository;
+	
+	
+	@Override
+	@Transactional(readOnly = true)
+	public List<Curso> findAll() {
+		// TODO Auto-generated method stub
+	    return (List<Curso>) cursorepository.findAll();
+	}
 
-        return cursoRepository;
-    }
+	@Override
+	@Transactional
+	public Curso save(Curso curso) {
+		// TODO Auto-generated method stub
+		return cursorepository.save(curso);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Curso findById(Long id) {
+		// TODO Auto-generated method stub
+		return cursorepository.findById(id).orElse(null);
+	}
+
+	@Override
+	@Transactional
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		cursorepository.deleteById(id);
+	}
+
+
 }

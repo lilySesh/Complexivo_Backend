@@ -1,6 +1,7 @@
 package com.complexivo.Complexivo_Base.Controllers;
 
 import com.complexivo.Complexivo_Base.Models.primary.Curso;
+import com.complexivo.Complexivo_Base.Models.primary.Curso_Materia;
 import com.complexivo.Complexivo_Base.Services.primary.CursoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,21 +19,24 @@ public class CursoController {
     private CursoService cursoService;
 
     @GetMapping("/read")
-    public ResponseEntity<List<Curso>> read() {
-
-        return new ResponseEntity<>(cursoService.findByAll(), HttpStatus.OK);
+    public List<Curso> read() {
+        return cursoService.findAll();
+    }
+    
+    @GetMapping("/read/{id}")
+    public Curso buscar(@PathVariable Long id) {
+        return cursoService.findById(id);
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Curso> create(@RequestBody Curso u) {
-
-        return new ResponseEntity<>(cursoService.save(u), HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.CREATED)
+    public Curso create(@RequestBody Curso curso) {
+        return cursoService.save(curso);
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<Curso> delete(@RequestParam Long id) {
-
-        cursoService.delete(id);
-        return  new ResponseEntity<>(HttpStatus.OK);
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
+    	cursoService.delete(id);
     }
 }
