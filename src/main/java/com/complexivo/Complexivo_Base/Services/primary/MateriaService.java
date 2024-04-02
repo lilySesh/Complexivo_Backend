@@ -1,21 +1,50 @@
 package com.complexivo.Complexivo_Base.Services.primary;
 
+import com.complexivo.Complexivo_Base.Models.primary.Carrera;
 import com.complexivo.Complexivo_Base.Models.primary.Materia;
+import com.complexivo.Complexivo_Base.Repository.primary.CarreraRepository;
 import com.complexivo.Complexivo_Base.Repository.primary.MateriaRepository;
-import com.complexivo.Complexivo_Base.Services.genericServices.GenericService;
-import com.complexivo.Complexivo_Base.Services.genericServices.GenericServiceImpl;
-import jakarta.transaction.Transactional;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 
 @Service
-@Transactional
-public class MateriaService extends GenericServiceImpl<Materia, Long> implements GenericService<Materia, Long> {
+public class MateriaService implements IMateriaService {
 
-    private MateriaRepository materiaRepository;
-    @Override
-    public CrudRepository<Materia, Long> getDao() {
+	@Autowired
+	private MateriaRepository materiarepository;
+	
+	@Override
+	@Transactional(readOnly = true)
+	public List<Materia> findAll() {
+		// TODO Auto-generated method stub
+	    return (List<Materia>) materiarepository.findAll();
+	}
 
-        return materiaRepository;
-    }
+	@Override
+	@Transactional
+	public Materia save(Materia materia) {
+		// TODO Auto-generated method stub
+		return materiarepository.save(materia);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Materia findById(Long id) {
+		// TODO Auto-generated method stub
+		return materiarepository.findById(id).orElse(null);
+	}
+
+	@Override
+	@Transactional
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		materiarepository.deleteById(id);
+	}
+
 }

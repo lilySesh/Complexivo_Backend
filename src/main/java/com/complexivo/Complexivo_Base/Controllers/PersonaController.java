@@ -1,5 +1,6 @@
 package com.complexivo.Complexivo_Base.Controllers;
 
+import com.complexivo.Complexivo_Base.Models.primary.Periodo_Academico;
 import com.complexivo.Complexivo_Base.Models.primary.Persona;
 import com.complexivo.Complexivo_Base.Services.primary.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,40 +19,25 @@ public class PersonaController {
     private PersonaService usuarioService;
 
     @GetMapping("/read")
-    public ResponseEntity<List<Persona>> read() {
-        return new ResponseEntity<>(usuarioService.findByAll(), HttpStatus.OK);
+    public List<Persona> read() {
+        return usuarioService.findAll();
     }
+    
+    @GetMapping("/read/{id}")
+    public Persona buscar(@PathVariable Long id) {
+        return usuarioService.findById(id);
+    }
+
     @PostMapping("/create")
-    public ResponseEntity<Persona> create(@RequestBody Persona u) {
-        return new ResponseEntity<>(usuarioService.save(u), HttpStatus.CREATED);
-    }
-    @PutMapping("/update/{id}")
-    public ResponseEntity<Persona> update(@PathVariable Long id, @RequestBody Persona p) {
-        Persona personas = usuarioService.findById(id);
-        if (personas != null) {
-            try {
-                personas.setPer_cedula(p.getPer_cedula());
-                personas.setPer_primer_nombre(p.getPer_primer_nombre());
-                personas.setPer_prim_apellido(p.getPer_prim_apellido());
-                personas.setPer_segundo_nombre(p.getPer_segundo_nombre());
-                personas.setPer_seg_apellido(p.getPer_seg_apellido());
-                personas.setPer_correo_institucional(p.getPer_correo_institucional());
-                personas.setUsuario(p.getUsuario());
-                personas.setDocente(p.getDocente());
-                return new ResponseEntity<>(usuarioService.save(personas), HttpStatus.CREATED);
-            } catch (Exception e) {
-                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    @ResponseStatus(HttpStatus.CREATED)
+    public Persona create(@RequestBody Persona persona) {
+        return usuarioService.save(persona);
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<Persona> delete(@RequestParam Long id) {
-        usuarioService.delete(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
+    	usuarioService.delete(id);
     }
 
 

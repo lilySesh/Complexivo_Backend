@@ -18,21 +18,24 @@ public class CarreraController {
     private CarreraService carreraService;
 
     @GetMapping("/read")
-    public ResponseEntity<List<Carrera>> read() {
-
-        return new ResponseEntity<>(carreraService.findByAll(), HttpStatus.OK);
+    public List<Carrera> read() {
+        return carreraService.findAll();
+    }
+    
+    @GetMapping("/read/{id}")
+    public Carrera buscar(@PathVariable Long id) {
+        return carreraService.findById(id);
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Carrera> create(@RequestBody Carrera u) {
-
-        return new ResponseEntity<>(carreraService.save(u), HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.CREATED)
+    public Carrera create(@RequestBody Carrera carrera) {
+        return carreraService.save(carrera);
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<Carrera> delete(@RequestParam Long id) {
-
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
         carreraService.delete(id);
-        return  new ResponseEntity<>(HttpStatus.OK);
     }
 }

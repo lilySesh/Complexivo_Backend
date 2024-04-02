@@ -1,11 +1,13 @@
 package com.complexivo.Complexivo_Base.Repository.primary;
 
 import com.complexivo.Complexivo_Base.Models.primary.Usuario;
-import com.complexivo.Complexivo_Base.Repository.genericRepository.GenericRepository;
+
+
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UsuarioRepository extends GenericRepository<Usuario, Long> {
+public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
 
 
 }

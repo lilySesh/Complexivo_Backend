@@ -1,5 +1,6 @@
 package com.complexivo.Complexivo_Base.Controllers;
 
+import com.complexivo.Complexivo_Base.Models.primary.Rol;
 import com.complexivo.Complexivo_Base.Models.primary.Unidad_Administrativa;
 import com.complexivo.Complexivo_Base.Services.primary.Unidad_AdministrativaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,21 +19,24 @@ public class Unidad_AdministrativaController {
     private Unidad_AdministrativaService unidadAdministrativaService;
 
     @GetMapping("/read")
-    public ResponseEntity<List<Unidad_Administrativa>> read() {
-
-        return new ResponseEntity<>(unidadAdministrativaService.findByAll(), HttpStatus.OK);
+    public List<Unidad_Administrativa> read() {
+        return unidadAdministrativaService.findAll();
+    }
+    
+    @GetMapping("/read/{id}")
+    public Unidad_Administrativa buscar(@PathVariable Long id) {
+        return unidadAdministrativaService.findById(id);
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Unidad_Administrativa> create(@RequestBody Unidad_Administrativa u) {
-
-        return new ResponseEntity<>(unidadAdministrativaService.save(u), HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.CREATED)
+    public Unidad_Administrativa create(@RequestBody Unidad_Administrativa unidad_administrativa) {
+        return unidadAdministrativaService.save(unidad_administrativa);
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<Unidad_Administrativa> delete(@RequestParam Long id) {
-
-        unidadAdministrativaService.delete(id);
-        return  new ResponseEntity<>(HttpStatus.OK);
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
+    	unidadAdministrativaService.delete(id);
     }
 }
