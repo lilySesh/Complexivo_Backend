@@ -26,10 +26,10 @@ public class Docente {
     private Long id_docente;
     
     @Column(name = "doc_titulo")
-    private int doc_titulo;
+    private String doc_titulo;
 
     @Column(name = "doc_tipo")
-    private int doc_tipo;
+    private String doc_tipo;
 
     @Column(name = "doc_horas")
     private int doc_horas;

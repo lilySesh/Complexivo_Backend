@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -29,7 +31,8 @@ public class Rol  {
     private String rol_descripcion;
 
     //Relaciones
+    
+    @OneToMany(mappedBy = "rol")
     @JsonIgnore
-    @OneToOne(mappedBy = "rol")
-    private Usuario usuario;
+    private List<Usuario> usuario;
 }
