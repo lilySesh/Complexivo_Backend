@@ -4,11 +4,8 @@ import java.util.List;
 
 import com.complexivo.Complexivo_Base.Models.primary.Distributivo;
 
-
-
 public interface IDistributivoService {
 
-	
 	public List<Distributivo> findAll();
 	public Distributivo save(Distributivo distributivo);
 	public Distributivo findById(Long id);

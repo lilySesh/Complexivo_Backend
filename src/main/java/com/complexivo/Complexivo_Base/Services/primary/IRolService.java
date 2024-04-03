@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.complexivo.Complexivo_Base.Models.primary.Rol;
 
-
 public interface IRolService {
 
 	public List<Rol> findAll();

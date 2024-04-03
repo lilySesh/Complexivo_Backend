@@ -1,11 +1,9 @@
 package com.complexivo.Complexivo_Base.Controllers;
 
-import com.complexivo.Complexivo_Base.Models.primary.Distributivo;
 import com.complexivo.Complexivo_Base.Models.primary.Docente;
 import com.complexivo.Complexivo_Base.Services.primary.DocenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

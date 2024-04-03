@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.complexivo.Complexivo_Base.Models.primary.Curso;
 
-
-
 public interface ICursoService {
 
 	public List<Curso> findAll();

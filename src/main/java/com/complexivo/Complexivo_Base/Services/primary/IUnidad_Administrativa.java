@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.complexivo.Complexivo_Base.Models.primary.Unidad_Administrativa;
 
-
 public interface IUnidad_Administrativa {
 	public List<Unidad_Administrativa> findAll();
 	public Unidad_Administrativa save(Unidad_Administrativa unidad_administrativa);
