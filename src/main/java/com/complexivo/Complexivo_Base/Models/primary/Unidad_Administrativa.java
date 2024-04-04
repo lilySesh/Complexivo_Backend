@@ -24,17 +24,14 @@ public class Unidad_Administrativa {
     @Column(name = "id_uni_adm")
     private Long id_uni_adm;
 
-    @Column(name = "peri_nombre")
-    private String peri_nombre;
+    @Column(name = "uni_adm_nombre")
+    private String uni_adm_nombre;
 
-    @Column(name = "peri_inicio")
-    private String peri_inicio;
+    @Column(name = "uni_adm_inicio")
+    private String uni_adm_horas;
 
-    @Column(name = "peri_fin")
-    private String peri_fin;
-
-    @Column(name = "peri_estado")
-    private boolean peri_estado;
+    @Column(name = "uni_adm_fin")
+    private String uni_adm_descripcion;
 
     //Relaciones
     @OneToMany(mappedBy = "uni_adm")
